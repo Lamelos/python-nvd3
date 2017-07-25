@@ -108,11 +108,13 @@ class lineChart(TemplateMixin, NVD3Chart):
                 format = kwargs.get('x_axis_format', 'r')
             self.create_x_axis('xAxis', format=format,
                                custom_format=kwargs.get('x_custom_format',
-                                                        False))
+                                                        False),
+                               label=kwargs.get('x_axis_label', ''))
         self.create_y_axis(
             'yAxis',
             format=kwargs.get('y_axis_format', '.02f'),
-            custom_format=kwargs.get('y_custom_format', False))
+            custom_format=kwargs.get('y_custom_format', False),
+            label=kwargs.get('y_axis_label', ''))
 
         # must have a specified height, otherwise it superimposes both chars
         self.set_graph_height(height)
