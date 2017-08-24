@@ -463,7 +463,7 @@ class NVD3Chart(object):
         if name == "xAxis" and self.focus_enable:
             self.axislist['x2Axis'] = axis
 
-    def create_y_axis(self, name, label=None, format=None, custom_format=False):
+    def create_y_axis(self, name, label=None, format=None, custom_format=False, ticks=None):
         """
         Create Y-axis
         """
@@ -476,6 +476,13 @@ class NVD3Chart(object):
 
         if label:
             axis['axisLabel'] = "'" + label + "'"
+
+        if ticks:
+            tickValues = '[{}'.format(ticks[0])
+            for tick in ticks[1:]:
+                tickValues = '{},{}'.format(tickValues, tick)
+            tickValues = '{}]'.format(tickValues)
+            axis['tickValues'] = tickValues
 
         # Add new axis to list of axis
         self.axislist[name] = axis

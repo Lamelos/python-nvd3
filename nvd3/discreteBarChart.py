@@ -123,7 +123,12 @@ class discreteBarChart(TemplateMixin, NVD3Chart):
         else:
             self.create_x_axis('xAxis', format=None)
 
-        self.create_y_axis('yAxis', format=kwargs.get('y_axis_format', ".0f"))
+        self.create_y_axis(
+            'yAxis',
+            format=kwargs.get('y_axis_format', ".0f"),
+            ticks=kwargs.get('y_axis_tickvalues', None),
+            label=kwargs.get('y_axis_label', '')
+        )
 
         self.set_custom_tooltip_flag(True)
 
