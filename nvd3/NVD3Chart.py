@@ -90,6 +90,8 @@ class NVD3Chart(object):
             Signal that x axis is a date axis
         :keyword: **date_format** - default - ``%x``
                   see https://github.com/mbostock/d3/wiki/Time-Formatting
+        :keyword: **x_axis_scale_min** - default - ``''``.
+        :keyword: **x_axis_scale_max** - default - ``''``.
         :keyword: **y_axis_scale_min** - default - ``''``.
         :keyword: **y_axis_scale_max** - default - ``''``.
         :keyword: **x_axis_format** - default - ``''``.
@@ -140,6 +142,8 @@ class NVD3Chart(object):
         self.style = kwargs.get('style', '')
         self.date_format = kwargs.get('date_format', '%x')
         self.x_axis_date = kwargs.get('x_axis_date', False)
+        self.x_axis_scale_min = kwargs.get('x_axis_scale_min', '')
+        self.x_axis_scale_max = kwargs.get('x_axis_scale_max', '')
         self.y_axis_scale_min = kwargs.get('y_axis_scale_min', '')
         self.y_axis_scale_max = kwargs.get('y_axis_scale_max', '')
         #: x-axis contain date format or not

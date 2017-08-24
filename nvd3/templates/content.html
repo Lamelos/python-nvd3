@@ -107,6 +107,12 @@
     {% endif %}
     {% endblock y_axis_scale %}
 
+    {% block x_axis_scale %}
+    {% if chart.x_axis_scale_min or chart.x_axis_scale_max %}
+        chart.forceX([{{ chart.x_axis_scale_min }},{{ chart.x_axis_scale_max }}]);
+    {% endif %}
+    {% endblock x_axis_scale %}
+
     {% block inject %}
         {# Inject data to D3 #}
         d3.select('#{{ chart.name }} svg')
